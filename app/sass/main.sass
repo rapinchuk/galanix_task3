@@ -18,7 +18,7 @@
 	&_title
 		margin: 0
 		color: white
-		text-align: center
+		text-align: left
 		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 		padding: 20px 0
 
@@ -28,6 +28,8 @@
 
 
 // input form 
+form
+	display: contents
 
 .search
 	display: flex
@@ -95,11 +97,13 @@
 		content: counter(item)	
 		position: absolute
 		top: 50%
-		left: -40px
+		left: -60px
 		transform: translate(0,-50%)
 		font-size: 2em
 		color: gray
 		opacity: 0.5
+		text-align: center
+		width: 50px
 
 
 	&:first-child>*::before
@@ -113,7 +117,7 @@
 	&:first-child>&_country::before
 		content: "country"
 	&:first-child>&_name::before
-		content: "name"
+		content: "name of university"
 	&:first-child>&_link::before
 		content: "site"
 	&:first-child>&_save::before

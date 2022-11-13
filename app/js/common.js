@@ -2,16 +2,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	const input = document.querySelector("#input")
 	const searchBtn = document.querySelector(".search_btn")
 	const list = document.querySelector(".result_list")
-	searchBtn.addEventListener("click", getData)
+	const reset = document.querySelector(".search_reset")
+	const description = document.querySelector(".result_description")
 
 	function getData(e){
 		e.preventDefault()
+		
 		const key = input.value
 		const url = `http://universities.hipolabs.com/search?country=${key}`
 		fetch(url)
 			.then((resp) => resp.json())
 			.then(function (data) {
-				console.log(data);
+				// console.log(data);
+				clear()
 				data.forEach(item => {
 					const country = item.country
 					const name = item.name
@@ -19,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 					const div = createNode(country,name,link)
 					append(div)
 				});
+				reset.style.cssText = "display: block;"
+				reset.addEventListener("click",resetHendler)
+				// const checkbox = document.
+				
 			
 			})
 			.catch(function (error) {
@@ -28,21 +35,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}
 
 
-	// function render(data){
-	// 	data.forEach(element => {
-	// 		element.map(function(item) {
-	// 			const country = item.country
-	// 			const name = item.name
-	// 			const link = item.link
-	// 			createNode()
-				
-	// 		});
-	// 	});
-	// }
+	
 	function append(el) {
 
 		return list.appendChild(el)
 	}
+
 	function createNode(country,name,link) {
 		const div = document.createElement("div");
 		div.classList.add('result_item')
@@ -55,14 +53,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		return div
 		
 	}
-	// fetch("http://universities.hipolabs.com/search?country=Ukraine")
-	// 	.then((resp) => resp.json())
-	// 	.then(function (data) {
-	// 		console.log(data)
-	// 	})
-	// 	.catch(function (error) {
-	// 		console.log(error);
-	// 	});
 
-
+	function clear() {
+		const div = document.querySelectorAll(".result_item")
+		description.style.cssText = "display: none;"
+		return div.forEach(element => {
+			element.remove()
+		});
+		
+	}
+	function resetHendler(e) {
+		e.preventDefault()
+		reset.style.cssText = "display: none;"
+		clear()
+		description.style.cssText = "display: inline-block;"
+		
+	}
+	searchBtn.addEventListener("click", getData)
+	
   });

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -17,9 +18,41 @@
 .header_title {
   margin: 0;
   color: white;
-  text-align: left;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding: 20px 0;
+}
+.header_inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.favorite {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+.favorite_counter {
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.favorite_icon:hover {
+  fill: green;
+}
+.favorite_icon:active {
+  fill: #2de33f;
 }
 
 form {
@@ -51,7 +84,7 @@ form {
   outline: 0;
   padding: 10px 20px 10px;
 }
-.search_btn {
+.search_btn, .search_reset {
   display: block;
   background-color: #08d;
   border-radius: 0 12px 12px 0px;
@@ -65,8 +98,13 @@ form {
   padding: 10px 20px 10px;
   text-decoration: none;
 }
-.search_btn:active {
+.search_btn:active, .search_reset:active {
   background-color: #06b;
+}
+.search_reset {
+  display: none;
+  margin-left: 50px;
+  border-radius: 12px;
 }
 
 .result {
@@ -84,7 +122,53 @@ form {
   margin: 0 auto;
   counter-reset: item;
 }
+.result_description {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: grey;
+  opacity: 0.8;
+  max-width: 500px;
+  text-align: center;
+  margin-top: 50px;
+}
+.result_description::before {
+  content: "↑";
+  font-size: 30px;
+  color: inherit;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  -webkit-animation: bounce infinite 2s;
+          animation: bounce infinite 2s;
+}
 
+@-webkit-keyframes bounce {
+  0% {
+    top: -50px;
+  }
+  50% {
+    top: -65px;
+  }
+  100% {
+    top: -50px;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    top: -50px;
+  }
+  50% {
+    top: -65px;
+  }
+  100% {
+    top: -50px;
+  }
+}
 .item {
   position: relative;
   font-family: Arial, Helvetica, sans-serif;

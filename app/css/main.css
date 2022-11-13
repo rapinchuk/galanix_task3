@@ -34,6 +34,7 @@
 }
 
 .favorite {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,6 +54,18 @@
 }
 .favorite_icon:active {
   fill: #2de33f;
+}
+
+.favorite-title {
+  display: none;
+  margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: grey;
+  opacity: 0.8;
+  max-width: 500px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 form {
@@ -83,6 +96,9 @@ form {
   height: 100%;
   outline: 0;
   padding: 10px 20px 10px;
+  -webkit-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 .search_btn, .search_reset {
   display: block;
@@ -121,6 +137,14 @@ form {
 .result_list {
   margin: 0 auto;
   counter-reset: item;
+  text-align: center;
+}
+.result_description-span {
+  -webkit-text-decoration: black underline;
+          text-decoration: black underline;
+  font-weight: 500;
+  -webkit-animation: textdecor infinite 2s;
+          animation: textdecor infinite 2s;
 }
 .result_description {
   position: relative;
@@ -132,7 +156,7 @@ form {
   text-align: center;
   margin-top: 50px;
 }
-.result_description::before {
+.result_description::after {
   content: "↑";
   font-size: 30px;
   color: inherit;
@@ -167,6 +191,34 @@ form {
   }
   100% {
     top: -50px;
+  }
+}
+@-webkit-keyframes textdecor {
+  0% {
+    -webkit-text-decoration-color: inherit;
+            text-decoration-color: inherit;
+  }
+  50% {
+    -webkit-text-decoration-color: black;
+            text-decoration-color: black;
+  }
+  100% {
+    -webkit-text-decoration-color: inherit;
+            text-decoration-color: inherit;
+  }
+}
+@keyframes textdecor {
+  0% {
+    -webkit-text-decoration-color: inherit;
+            text-decoration-color: inherit;
+  }
+  50% {
+    -webkit-text-decoration-color: black;
+            text-decoration-color: black;
+  }
+  100% {
+    -webkit-text-decoration-color: inherit;
+            text-decoration-color: inherit;
   }
 }
 .item {
@@ -205,6 +257,7 @@ form {
   opacity: 0.5;
   text-transform: uppercase;
   text-decoration: underline;
+  z-index: 1;
 }
 .item:first-child > .item_country::before {
   content: "country";
@@ -244,6 +297,7 @@ form {
   padding: 20px 10px;
 }
 .item_link {
+  padding: 20px 10px;
   width: 100%;
   height: 100%;
   text-align: center;

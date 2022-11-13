@@ -27,7 +27,7 @@
 
 
 .favorite
-	// height: 100%
+	cursor: pointer
 	display: flex
 	align-items: center
 	gap: 20px
@@ -43,7 +43,16 @@
 		&:active
 			fill: #2de33f
 
-		
+.favorite-title
+	display: none
+	margin-bottom: 20px
+	font-family: Arial, Helvetica, sans-serif
+	font-size: 30px
+	color: grey
+	opacity: 0.8
+	max-width: 500px
+	text-align: center
+	margin-top: 20px
 
 
 
@@ -70,6 +79,7 @@ form
 		height: 100%
 		outline: 0
 		padding: 10px 20px 10px
+		transition: background-color 0.2s
 	
 		
 
@@ -103,7 +113,11 @@ form
 	&_list
 		margin: 0 auto
 		counter-reset: item
-
+		text-align: center
+	&_description-span
+		text-decoration: black underline
+		font-weight: 500
+		animation: textdecor infinite 2s	
 	&_description
 		position: relative
 		font-family: Arial, Helvetica, sans-serif
@@ -113,7 +127,7 @@ form
 		max-width: 500px
 		text-align: center
 		margin-top: 50px
-		&::before
+		&::after
 			content: "↑"
 			font-size: 30px
 			color: inherit
@@ -131,7 +145,14 @@ form
 	100% 
 		top: -50px
     
-  
+@keyframes textdecor 
+	0% 
+		text-decoration-color: inherit
+	50% 
+		text-decoration-color: black
+
+	100% 
+		text-decoration-color: inherit
 
 
 .item
@@ -145,7 +166,6 @@ form
 	justify-items: center
 	color: black
 	counter-increment: item
-	
 	&::after
 		content: counter(item)	
 		position: absolute
@@ -157,8 +177,6 @@ form
 		opacity: 0.5
 		text-align: center
 		width: 50px
-
-
 	&:first-child>*::before
 		position: absolute
 		top: -30px
@@ -167,6 +185,7 @@ form
 		opacity: 0.5
 		text-transform: uppercase
 		text-decoration: underline
+		z-index: 1
 	&:first-child>&_country::before
 		content: "country"
 	&:first-child>&_name::before
@@ -201,7 +220,7 @@ form
 	
 
 	&_link
-		
+		padding: 20px 10px
 		width: 100%
 		height: 100%
 		text-align: center	

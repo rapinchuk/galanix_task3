@@ -1,4 +1,4 @@
-@import "checkbox"
+@import "loader"
 // common
 *
 	box-sizing: border-box
@@ -10,12 +10,15 @@
 	padding: 0 40px
 
 
+	
 // header
 
 .header	
 	background-color: black
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
 	&_title
+		display: flex
+		align-items: center
 		margin: 0
 		color: white
 		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
@@ -43,16 +46,7 @@
 		&:active
 			fill: #2de33f
 
-.favorite-title
-	display: none
-	margin-bottom: 20px
-	font-family: Arial, Helvetica, sans-serif
-	font-size: 30px
-	color: grey
-	opacity: 0.8
-	max-width: 500px
-	text-align: center
-	margin-top: 20px
+
 
 
 
@@ -106,7 +100,7 @@ form
 
 // result list 
 .result
-	padding: 50px 0
+	padding: 25px 0
 	&_inner
 		display: flex
 		justify-content: center
@@ -118,24 +112,28 @@ form
 		text-decoration: black underline
 		font-weight: 500
 		animation: textdecor infinite 2s	
-	&_description
-		position: relative
-		font-family: Arial, Helvetica, sans-serif
-		font-size: 30px
-		color: grey
-		opacity: 0.8
-		max-width: 500px
-		text-align: center
-		margin-top: 50px
-		&::after
-			content: "↑"
-			font-size: 30px
-			color: inherit
-			position: absolute
-			top: -50px
-			left: 50%
-			transform: translate(-50%,0)
-			animation: bounce infinite 2s	
+.message
+	display: inline-block
+	position: relative
+	font-family: Arial, Helvetica, sans-serif
+	font-size: 30px
+	color: grey
+	opacity: 0.8
+	max-width: 500px
+	text-align: center
+	margin-top: 50px
+.arrow::after
+	content: "↑"
+	font-size: 30px
+	color: inherit
+	position: absolute
+	top: -50px
+	left: 50%
+	transform: translate(-50%,0)
+	animation: bounce infinite 2s	
+
+
+
 @keyframes bounce 
 	0% 
 		top: -50px
@@ -172,12 +170,13 @@ form
 		top: 50%
 		left: -60px
 		transform: translate(0,-50%)
-		font-size: 2em
+		font-size: 1em
 		color: gray
 		opacity: 0.5
 		text-align: center
 		width: 50px
 	&:first-child>*::before
+		content: "country"
 		position: absolute
 		top: -30px
 		font-size: 1em
@@ -193,9 +192,7 @@ form
 	&:first-child>&_link::before
 		content: "site"
 	&:first-child>&_save::before
-		content: "save"
-	
-		
+		content: "save"	
 	&+&
 		margin-top: 20px
 	&>*:nth-child(2n+1)
@@ -231,3 +228,23 @@ form
 
 
 
+.table_head
+	margin-top: 30px
+	&>*::before
+		
+		position: absolute
+		top: -30px
+		font-size: 1em
+		color: gray
+		opacity: 0.5
+		text-transform: uppercase
+		text-decoration: underline
+		z-index: 1
+	&>:first-child::before
+		content: "Country"
+	&>:nth-child(2)::before
+		content: "name of university"
+	&>:nth-child(3)::before
+		content: "site"
+	&>:nth-child(4)::before
+		content: "save"

@@ -1,20 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="css/libs.min.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-
-	Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Которой над взобравшись дорогу рыбными свой деревни, парадигматическая она сбить даль щеке! Прямо мир агенство о предложения буквенных реторический это.
-
-	<p><img src="img/1.jpg" alt="Alt"></p>
-	<p><img src="img/2.jpg" alt="Alt"></p>
-	<p><img src="img/3.jpg" alt="Alt"></p>
 	
-	<script src="js/libs.min.js"></script>
+	<title>Task_3</title>
+</head>
 
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="header_inner">
+				<h1 class="header_title">World Universities <img style="margin-left: 10px;height: 50px" src="img/watermelon.png" alt=")" ></h1>
+				<div class="header_favorite favorite">
+					<span class="favorite_counter">0</span>
+					<svg xmlns="http://www.w3.org/2000/svg" class="favorite_icon" width="24" height="24" fill="white" viewBox="0 0 24 24">
+						<path
+							d="M6.28 3c3.236.001 4.973 3.491 5.72 5.031.75-1.547 2.469-5.021 5.726-5.021 2.058 0 4.274 1.309 4.274 4.182 0 3.442-4.744 7.851-10 13-5.258-5.151-10-9.559-10-13 0-2.676 1.965-4.193 4.28-4.192zm.001-2c-3.183 0-6.281 2.187-6.281 6.192 0 4.661 5.57 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-4.011-3.097-6.182-6.274-6.182-2.204 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248z" />
+					</svg>
+				
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<section class="main">
+		
+		<div class="container">
+			<div class="main_inner">
+				<div class="main_search search">
+					<form>
+						
+						<input type="text" id="input" name="serach" placeholder="Enter country" class="search_input">
+
+						<button type="submit" class="search_btn">Search</button>
+
+					</form>
+					<a href="#" class="search_reset">Clear</a>
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section class="result">
+		<div class="container">
+			<div class="result_inner">
+				
+				<div class="result_list">
+					<p class="message arrow"> </p>
+					<div class="lds-roller"><div></div><div></div><div></div><div></div>
+				
+					<!-- <span class="favorite-title favorite-text">My favorite</span>
+					<span class="favorite-empty favorite-text">No any favorite university</span>
+					<span class="no-result favorite-text"></span>
+					<p class="result_description">
+						Enter the name of the country whose universities you want to view <br>
+						for example: <span class='result_description-span'>Ukraine</span> </p> -->
+				
+				</div>
+				
+				
+			</div>
+		</div>
+	</section>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+	<script src="js/common.js"></script>
 </body>
+
 </html>
